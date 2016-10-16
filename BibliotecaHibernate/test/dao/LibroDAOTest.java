@@ -16,14 +16,14 @@ public class LibroDAOTest {
 	@BeforeClass
 	public static void SetUp() {
 		lDAO = new LibroDAO();
-		l = new Libro("", "", "", 0);
+		l = new Libro("BBB", "BBB", "BB001", 1);
 		lDAO.createLibro(l);
 		assertNotNull(lDAO);
 	}
 	
 	@Test
 	public void createBiblioteca(){
-		Libro l = new Libro("", "", "", 0);
+		Libro l = new Libro("AAA", "AAA", "AA001", 1);
 		boolean token = lDAO.createLibro(l);
 		assertTrue(token);
 	}
@@ -37,7 +37,7 @@ public class LibroDAOTest {
 	@Test
 	public void updateBiblioteca(){
 		Libro l1 = lDAO.readLibro(1);
-		l1.setTitolo("");
+		l1.setTitolo("CCC");
 		boolean token = lDAO.updateLibro(l1);
 		assertTrue(token);	
 	}
