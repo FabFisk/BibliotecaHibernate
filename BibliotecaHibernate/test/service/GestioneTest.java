@@ -52,20 +52,22 @@ public class GestioneTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertNull(u1);
+		assertNotNull(u1);
 	}
-//	
-//	@Test
-//	public void prestaLibro() {
-//		boolean token = g.prestaLibro(b, u, l);
-//		assertTrue(token);
-//	}
-//	
-//	@Test
-//	public void restituisciLibro() {
-//		boolean token = g.restituisciLibro(b, u, l);
-//		assertTrue(token);
-//	}
+	
+	@Test
+	public void prestaLibro() {
+		boolean token = g.prestaLibro(b, u, l);
+		assertTrue(token);
+	}
+	
+	
+	@Test
+	public void restituisciLibro() {
+		boolean token = g.restituisciLibro(b, u, l);
+		assertEquals(0, u.getNumeroPrestiti());
+		assertTrue(token);
+	}
 
 
 

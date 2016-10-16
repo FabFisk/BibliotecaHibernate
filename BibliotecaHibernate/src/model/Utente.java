@@ -86,6 +86,9 @@ public class Utente {
 	public void addBiblioteca(Biblioteca b){
 		this.biblioteche.add(b);
 	}
+	public int getNumeroPrestiti(){
+		return this.prestiti.size();
+	}
 	
 	
 }
