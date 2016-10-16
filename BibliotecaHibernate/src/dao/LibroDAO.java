@@ -44,7 +44,7 @@ public class LibroDAO {
 		return l;
 	}
 	
-	public Libro readBiblioteca(String titolo, String autore){
+	public Libro readLibro(String titolo, String autore){
 		Libro l = null;
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
