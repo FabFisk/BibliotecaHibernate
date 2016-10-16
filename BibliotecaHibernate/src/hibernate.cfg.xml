@@ -32,7 +32,7 @@
 		
 		<!-- Drop and re-create the database schema on startup -->
 <!-- Comportamento all'avvio -->
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create</property>
 		
 <!-- Inserire riga di mapping per ogni classe da mappare -->
 		<mapping class="model.Biblioteca" />

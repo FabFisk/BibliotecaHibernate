@@ -5,6 +5,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 @Entity
 public class Biblioteca {
 	
@@ -16,6 +19,8 @@ public class Biblioteca {
 	private Set<Utente> utenti;
 	@ManyToMany
 	private Set<Libro> libri;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "b", cascade = CascadeType.ALL)
+	@NotFound(action=NotFoundAction.IGNORE)
 	private Set<Prestito> prestiti;
 	
 	public Biblioteca(){

@@ -7,18 +7,24 @@ import javax.persistence.*;
 @Entity
 public class Prestito {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id_prestito;
 	@ManyToOne
 	private Utente u;
 	@ManyToOne
 	private Libro l;
+	@ManyToOne
+	private Biblioteca b;
 	private Date dataPrestito;
 	private Date dataScadenza;
 	private Date dataRestituzione;
 	
 	public Prestito(){}
-	public Prestito(Utente u, Libro l, Date dataPrestito, Date dataScadenza){
+	public Prestito(Utente u, Libro l, Biblioteca b, Date dataPrestito, Date dataScadenza){
 		this.u=u;
 		this.l=l;
+		this.b=b;
 		this.dataPrestito=dataPrestito;
 		this.dataScadenza=dataScadenza;
 	}
@@ -52,7 +58,16 @@ public class Prestito {
 	public void setDataRestituzione(Date dataRestituzione) {
 		this.dataRestituzione = dataRestituzione;
 	}
-	
-	
-
+	public long getId_prestito() {
+		return id_prestito;
+	}
+	public void setId_prestito(long id_prestito) {
+		this.id_prestito = id_prestito;
+	}
+	public Biblioteca getB() {
+		return b;
+	}
+	public void setB(Biblioteca b) {
+		this.b = b;
+	}
 }
