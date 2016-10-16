@@ -2,9 +2,14 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
+@Entity
 public class Prestito {
 	
+	@ManyToOne
 	private Utente u;
+	@ManyToOne
 	private Libro l;
 	private Date dataPrestito;
 	private Date dataScadenza;

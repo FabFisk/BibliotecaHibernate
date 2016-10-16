@@ -3,11 +3,18 @@ package model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.*;
+
+@Entity
 public class Biblioteca {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id_biblioteca;
 	private String nome;
+	@ManyToMany
 	private Set<Utente> utenti;
+	@ManyToMany
 	private Set<Libro> libri;
 	private Set<Prestito> prestiti;
 	
