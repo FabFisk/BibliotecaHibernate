@@ -59,14 +59,15 @@ public class GestioneTest {
 	public void prestaLibro() {
 		boolean token = g.prestaLibro(b, u, l);
 		assertTrue(token);
+		assertEquals(1, u.getNumeroPrestiti());
 	}
 	
 	
 	@Test
 	public void restituisciLibro() {
 		boolean token = g.restituisciLibro(b, u, l);
-		assertEquals(0, u.getNumeroPrestiti());
 		assertTrue(token);
+		assertEquals(0, u.getNumeroPrestiti());
 	}
 
 
