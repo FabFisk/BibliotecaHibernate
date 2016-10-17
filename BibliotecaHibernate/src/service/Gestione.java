@@ -70,17 +70,24 @@ public class Gestione {
 		boolean token = false;
 		Prestito p = pDAO.readPrestito(u, l);
 		if(p!=null && p.getDataRestituzione()==null){
-			Date today = new Date();
-			p.setDataRestituzione(today);
-			u.getPrestiti().remove(p);
-			l.getPrestiti().remove(p);
+			restituzione(p);
 			l.setCopieDisp(l.getCopieDisp()+1);
+			l.removePrestito(p);
+//			u.removePrestito(p);			
+			lDAO.updateLibro(l);	
+//			uDAO.updateUtente(u);
 			pDAO.updatePrestito(p);
-			uDAO.updateUtente(u);
-			lDAO.updateLibro(l);
+//			System.out.println(l.getPrestiti().size());
 			token = true;
 		}		
 		return token;	
+	}
+
+	private void restituzione(Prestito p) {
+		Date today = new Date();
+		p.setDataRestituzione(today);
+		p.removeL();
+		p.removeU();
 	}
 	
 	private Date setScadenza(Date today) {

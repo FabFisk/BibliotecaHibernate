@@ -70,4 +70,10 @@ public class Prestito {
 	public void setB(Biblioteca b) {
 		this.b = b;
 	}
+	public void removeU(){
+		this.u=null;
+	}
+	public void removeL(){
+		this.l=null;
+	}
 }

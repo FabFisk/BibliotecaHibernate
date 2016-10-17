@@ -107,6 +107,10 @@ public class Libro {
 	public void addPrestito(Prestito p){
 		this.prestiti.add(p);
 	}
+	
+	public void removePrestito(Prestito p){
+		this.prestiti.remove(p);
+	}
 
 	public Set<Biblioteca> getBiblioteche() {
 		return biblioteche;
