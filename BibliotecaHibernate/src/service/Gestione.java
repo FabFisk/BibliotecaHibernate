@@ -69,12 +69,10 @@ public class Gestione {
 	public boolean restituisciLibro(Biblioteca b, Utente u, Libro l) {
 		boolean token = false;
 		Prestito p = pDAO.readPrestito(u, l);
-		if(u!=null && l!=null && p!=null && p.getDataRestituzione()==null){
+		if(p!=null && p.getDataRestituzione()==null){
 			Date today = new Date();
 			p.setDataRestituzione(today);
-			System.out.println(p.getDataRestituzione());
 			u.getPrestiti().remove(p);
-			p.setU(null);
 			l.getPrestiti().remove(p);
 			l.setCopieDisp(l.getCopieDisp()+1);
 			pDAO.updatePrestito(p);
